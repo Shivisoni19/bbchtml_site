@@ -10167,7 +10167,7 @@ strong {
 
 /* Table Section Css   */
 .rwd-table {
-  margin: auto;
+  /* margin: auto; */
   min-width: 300px;
   max-width: 100%;
   border-collapse: collapse;
