@@ -58,11 +58,11 @@
 
   <body>
     <div class="wrapper">
-      <div class="preloader">
+      <!-- <div class="preloader">
         <div class="loading">
           <span></span><span></span><span></span><span></span>
         </div>
-      </div>
+      </div> -->
       <!-- /.preloader -->
 
       <!-- =========================
@@ -1670,6 +1670,109 @@
       </section>
       <!-- /.blog Grid/Recent Articles -->
 
+      <!-- Pop Up Model Start from here  -->
+      <div id="myPopupForm" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <!--         <h4 class="modal-title">Modal Header</h4> -->
+            </div>
+            <div class="modal-body text-center">
+              <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="contact-panel1 mb-0">
+                  <form id="myPopupForm" action="https://formspree.io/f/mgegngzd" method="POST">
+                    <div class="row">
+                      <div class="col-sm-12 col-md-12 col-lg-12">
+                        <h4 class="contact-panel__title">Request A Quote</h4>
+                      </div> <!-- /.col-lg-12 -->
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Name" id="Name" name="Customername"
+                            required>
+                        </div>
+                      </div><!-- /.col-sm-6 -->
+                      <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="form-group">
+                          <input type="email" class="form-control" placeholder="Email" id="Email"
+                            name="Customeremail" required>
+                        </div>
+                      </div><!-- /.col-sm-6 -->
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Phone" id="Phone"
+                            name="Number">
+                        </div>
+                      </div><!-- /.col-sm-6 -->
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Postal Code" id="PostalCode"
+                            name="PostalCode" required>
+                            <small class="" id="postalCodeMessage">Enter a valid UK postal code (e.g.SW1A 1AA)</small>
+                        </div>
+                      </div><!-- /.col-sm-6 -->
+                      <div class="col-sm-12">
+                        <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Business Name" id="BName"
+                            name="BusinessName" required>
+                        </div>
+                      </div><!-- /.col-sm-12 -->
+                      <div class="col-12">
+                        <div class="d-flex">
+                          <div class="form-group input-radio mr-30">
+                            <label class="label-radio">Electricity
+                              <input type="checkbox" id="vehicle1" name="Electricity" value="Electricity">
+                              <span class="radio-indicator"></span>
+                            </label>
+                          </div><!-- /.input-radio -->
+                          <div class="form-group input-radio mr-30">
+                            <label class="label-radio">Gas
+                              <input type="checkbox" id="vehicle1" name="Gas" value="Gas">
+                              <span class="radio-indicator"></span>
+                            </label>
+                          </div><!-- /.input-radio -->
+                        </div>
+                      </div><!-- /.col-12 -->
+                    </div><!-- /.row -->
+                    <div class="modal-footer">
+                      <button type="submit" name="send" class="btn btn__primary btn__block">
+                        <i class="icon-arrow-right"></i> <span>SUBMIT</span>
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div><!-- /.col-xl-6 -->
+            </div>
+          </div>
+      
+        </div>
+      </div>
+       <!-- Pop Up Model End -->
+
+       <!-- Cookies Form Start from here -->
+       <title>Popup Cookie Consent Box</title>
+        <!-- Boxicons CSS -->
+        <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
+        <script src="script.js" defer></script>
+
+        <div class="wrapper1">
+          <header>
+            <i class="bx bx-cookie"></i>
+            <h2>Cookies Consent</h2>
+          </header>
+
+          <div class="data">
+            <p>This website use cookies to help you have a superior and more relevant browsing experience on the website. <a href="#"> Read more...</a></p>
+          </div>
+
+          <div class="buttons">
+            <button class="button" id="acceptBtn">Accept</button>
+            <button class="button" id="declineBtn">Decline</button>
+          </div>
+        </div>
+        <!-- Cookies Form End -->
+
       <!-- ========================
       Footer 
       ========================== -->
@@ -1732,5 +1835,70 @@
       });
     });
   </script>
+
+  <!-- Pop Up Form Script  -->
+  <script>
+      $(document).ready(function(){       
+      $('#myPopupForm').modal('show');
+        }); 
+  </script>
+  <!-- Pop Up Form Script End -->
+
+  <!-- Form Script JS  -->
+  <script>
+    $(document).ready(function() {
+      // Validate UK postal code
+      function validatePostalCode(postalCode) {
+        // UK postal code regex pattern
+        var regex = /^[A-Z]{1,2}[0-9R][0-9A-Z]? [0-9][ABD-HJLNP-UW-Z]{2}$/i;
+        return regex.test(postalCode);
+      }
+  
+      // Form submission
+      $('#myPopupForm').submit(function(event) {
+        var postalCodeInput = $('#PostalCode');
+        var postalCodeValue = postalCodeInput.val();
+        var postalCodeMessage = $('#postalCodeMessage');
+  
+        // Check if the entered postal code is valid
+        if (!validatePostalCode(postalCodeValue)) {
+          postalCodeMessage.show(); // Display the message
+          event.preventDefault(); // Prevent form submission
+        } else {
+          postalCodeMessage.hide(); // Hide the message if postal code is valid
+        }
+        // Continue with form submission
+      });
+    });
+  </script>
+  <!-- Form Script JS  End-->
+
+  <!-- Cookies JS  -->
+  <script>
+    const cookieBox = document.querySelector(".wrapper1"),
+    buttons = document.querySelectorAll(".button");
+
+      const executeCodes = () => {
+        //if cookie contains codinglab it will be returned and below of this code will not run
+        if (document.cookie.includes("codinglab")) return;
+        cookieBox.classList.add("show");
+
+        buttons.forEach((button) => {
+          button.addEventListener("click", () => {
+            cookieBox.classList.remove("show");
+
+            //if button has acceptBtn id
+            if (button.id == "acceptBtn") {
+              //set cookies for 1 month. 60 = 1 min, 60 = 1 hours, 24 = 1 day, 30 = 30 days
+              document.cookie = "cookieBy= codinglab; max-age=" + 60 * 60 * 24 * 30;
+            }
+          });
+        });
+      };
+
+    //executeCodes function will be called on webpage load
+    window.addEventListener("load", executeCodes);
+  </script>
+  <!-- Cookies JS End-->
   </body>
 </html>
