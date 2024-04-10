@@ -10404,3 +10404,15 @@ header h2 {
     margin-bottom: 20px !important;  
   }
 }
+.half-hourly-bg{
+  background: #fff;
+  border : 2px solid #ef5aab;
+  padding: 25px;
+  margin-bottom: 15px;
+}
+.half-hourly-bg .hourly__img img{
+  height: 296px;
+}
+.accordion-item {
+  border-color: #ef5aab;
+}
