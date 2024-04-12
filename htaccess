@@ -1,0 +1,15 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{SERVER_PORT} !^443$
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www.bbcutilities.com$
+RewriteRule (.*) https://bbcutilities.com/$1 [R=301,L]
+</IfModule>
+RewriteCond %{HTTP_HOST} ^bbcutilities\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.bbcutilities\.com$
+RewriteRule ^index\.html$ "https\:\/\/bbcutilities\.com\/" [R=301,L]
+ErrorDocument 404 /page-404.html
