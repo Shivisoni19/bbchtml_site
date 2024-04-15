@@ -47,9 +47,10 @@
 
 <body>
   <div class="wrapper">
-    <div class="preloader">
+    <!-- <div class="preloader">
       <div class="loading"><span></span><span></span><span></span><span></span></div>
-    </div><!-- /.preloader -->
+    </div> -->
+    <!-- /.preloader -->
 
     <!-- =========================
         Header
@@ -161,14 +162,13 @@
             </div><!-- /.heading -->
             <p>We will get back to you within 24 hours, or call us on <a href="tel:02071738312">02071738312</a>
               09:00 AM - 12:00 PM. Or you can send us Email <a href="mailto:kim@bbcutilities.com">kim@bbcutilities.com</a></p>
-          </div><!-- /.col-xl-6 -->
-          <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6 offset-xl-1">
-            <div class="contact-panel mb-0">
+          </div>
+          <!-- /.col-xl-6 -->
+          <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6 offset-xl-1 contact-panel">
+            <!-- <div class="contact-panel mb-0"> -->
               <form id="myForm" action="https://formspree.io/f/mdorpldd" method="POST">
+                <h4 class="contact-panel__title">Request A Quote</h4>
                 <div class="row">
-                  <div class="col-sm-12 col-md-12 col-lg-12">
-                    <h4 class="contact-panel__title">Request A Quote</h4>
-                  </div> <!-- /.col-lg-12 -->
                   <div class="col-sm-6">
                     <div class="form-group">
                       <input type="text" class="form-control" placeholder="Name" id="Name" name="Name"
@@ -195,35 +195,23 @@
                     </div>
                   </div><!-- /.col-sm-6 -->
 
-                  <div class="col-12">
-                    <span class="font-weight-bold color-heading d-block mb-15 mt-10">Business Name</span>
-                  </div>
                   <div class="col-sm-12">
+                    <span class="font-weight-bold color-heading d-block mb-15 mt-10">Business Name</span>
                     <div class="form-group">
                       <input type="text" class="form-control" placeholder="Business Name" id="BName"
                         name="BName" required>
                     </div>
-                  </div><!-- /.col-sm-12 -->
+                  </div>
 
-                  <div class="col-12">
-                    <span class="font-weight-bold color-heading d-block mb-15 mt-10">Supplier Point / Meter Number</span>
-                  </div><!-- /.col-12 -->
                   <div class="col-sm-12">
+                    <span class="font-weight-bold color-heading d-block mb-15 mt-10">Supplier Point / Meter Number</span>
                     <div class="form-group">
                       <input type="text" class="form-control" placeholder="Meter Number" id="MNumber"
                         name="MNumber" required>
                     </div>
-                    <!-- <div class="form-group">
-                      <select class="form-control">
-                        <option value="0">System Installer?</option>
-                        <option value="1">System Installer 1</option>
-                        <option value="1">System Installer 2</option>
-                      </select>
-                    </div> -->
-                  </div><!-- /.col-sm-6 -->
+                  </div><!-- /.col-12 -->
 
                   <div class="col-12">
-                    <!-- <span class="font-weight-bold color-heading d-block mb-15 mt-10">Preferred Contact Method</span> -->
                     <div class="d-flex">
                       <div class="form-group input-radio mr-30">
                         <label class="label-radio">Electricity
@@ -243,11 +231,10 @@
                     <button type="submit" class="btn btn__primary btn__block">
                       <i class="icon-arrow-right"></i> <span>NEXT</span>
                     </button>
-                    <!-- <div class="contact-result">Successfull</div> -->
                   </div><!-- /.col-12 -->
                 </div><!-- /.row -->
               </form>
-            </div>
+            <!-- </div> -->
           </div><!-- /.col-xl-6 -->
         </div><!-- /.row -->
       </div><!-- /.container -->

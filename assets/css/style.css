@@ -2422,7 +2422,7 @@ label.error {
   font-size: 14px;
   padding: 0 0 0 20px;
   border-radius: 5px;
-  border: 1px solid #f4f4f4;
+  /* border: 1px solid #f4f4f4; */
   background-color: transparent;
 }
 
@@ -10163,7 +10163,7 @@ strong {
 }
 
 .contact_form .form-group {
-    border: 1px solid #9b9b9b3b;
+    /* border: 1px solid #9b9b9b3b; */
     border-radius: 5px;
 }
 /* #myForm .form-group input{
