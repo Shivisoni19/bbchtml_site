@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic Search Bar</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <style>
+    .container {
+      margin: 50px auto;
+      width: 300px;
+    }
+
+    input[type='text'] {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      padding: 5px 0;
+      cursor: pointer;
+    }
+
+    li:hover {
+      background-color: #f0f0f0;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <input type="text" id="searchInput" placeholder="Enter postal code..." />
+      <ul id="areaList"></ul>
+    </div>
+    <script>
+      const searchInput = document.getElementById('searchInput')
+      const areaList = document.getElementById('areaList')
+
+    //   Mock data (Replace with your own data source)
+      const postalCodeData = {
+        12345: ['Area A', 'Area B', 'Area C'],
+        67890: ['Area X', 'Area Y', 'Area Z']
+      }
+
+      searchInput.addEventListener('input', function () {
+        const searchTerm = this.value.trim()
+        displayAreas(searchTerm)
+      })
+
+      function displayAreas(searchTerm) {
+        areaList.innerHTML = ''
+        if (!searchTerm) return
+
+        const areas = postalCodeData[searchTerm]
+        if (areas) {
+          areas.forEach(area => {
+            const listItem = document.createElement('li')
+            listItem.textContent = area
+            areaList.appendChild(listItem)
+          })
+        } else {
+          const listItem = document.createElement('li')
+          listItem.textContent = 'No areas found'
+          areaList.appendChild(listItem)
+        }
+      }
+    </script>
+  </body>
+</html>
+
+<!-- With JS API Code is here  -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic Location Search</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <input type="text" id="searchInput" placeholder="Enter postal code..." />
+      <ul id="locationList"></ul>
+    </div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
+    <script>
+      const searchInput = document.getElementById('searchInput')
+      const locationList = document.getElementById('locationList')
+
+      searchInput.addEventListener('input', function () {
+        const searchTerm = this.value.trim()
+        if (searchTerm.length >= 5) {
+          fetchLocations(searchTerm)
+        } else {
+          clearLocations()
+        }
+      })
+
+      function fetchLocations(postalCode) {
+        const geocoder = new google.maps.Geocoder()
+        geocoder.geocode(
+          { address: postalCode + ', UK' },
+          function (results, status) {
+            if (status === 'OK') {
+              displayLocations(results)
+            } else {
+              console.error(
+                'Geocode was not successful for the following reason:',
+                status
+              )
+            }
+          }
+        )
+      }
+
+      function displayLocations(results) {
+        locationList.innerHTML = ''
+        results.forEach(result => {
+          const address = result.formatted_address
+          const listItem = document.createElement('li')
+          listItem.textContent = address
+          locationList.appendChild(listItem)
+        })
+      }
+
+      function clearLocations() {
+        locationList.innerHTML = ''
+      }
+    </script>
+  </body>
+</html> -->
+
+<!-- With PHP AII code is here  -->
+<!-- <?php
+// Connect to your database or include any necessary files
+
+if (isset($_GET['postal_code'])) {
+    $postal_code = $_GET['postal_code'];
+
+    // Query your database or call an API to fetch location data based on the postal code
+    // For demonstration purposes, let's assume you have a function called getLocationsByPostalCode
+    $locations = getLocationsByPostalCode($postal_code);
+
+    // Output the results in JSON format
+    header('Content-Type: application/json');
+    echo json_encode($locations);
+} else {
+    echo json_encode(array("error" =>
+"Postal code parameter is missing")); } ?> -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic Location Search</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <input type="text" id="searchInput" placeholder="Enter postal code..." />
+      <ul id="locationList"></ul>
+    </div>
+    <script>
+      const searchInput = document.getElementById('searchInput')
+      const locationList = document.getElementById('locationList')
+
+      searchInput.addEventListener('input', function () {
+        const searchTerm = this.value.trim()
+        if (searchTerm.length >= 5) {
+          fetchLocations(searchTerm)
+        } else {
+          clearLocations()
+        }
+      })
+
+      function fetchLocations(postalCode) {
+        const xhr = new XMLHttpRequest()
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+              const locations = JSON.parse(xhr.responseText)
+              displayLocations(locations)
+            } else {
+              console.error('Error fetching locations:', xhr.status)
+            }
+          }
+        }
+        xhr.open('GET', 'get_locations.php?postal_code=' + postalCode)
+        xhr.send()
+      }
+
+      function displayLocations(locations) {
+        locationList.innerHTML = ''
+        locations.forEach(location => {
+          const listItem = document.createElement('li')
+          listItem.textContent = location
+          locationList.appendChild(listItem)
+        })
+      }
+
+      function clearLocations() {
+        locationList.innerHTML = ''
+      }
+    </script>
+  </body>
+</html> -->
